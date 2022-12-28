@@ -12,6 +12,7 @@ import { Routes, Route, Outlet } from "react-router-dom";
 //Rutas
 import Home from "./components/routes/Home";
 import Gifts from "./components/routes/Gifts";
+import Auth from "./components/routes/Auth";
 import NoMatch404 from "./components/routes/NoMatch404";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/" element={<CustomNavbar />}>
 					<Route index element={<Home />} />
 					<Route path="/gifts" element={<Gifts />} />
+					<Route path="/auth" element={<Auth />} />
 
 					{/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit

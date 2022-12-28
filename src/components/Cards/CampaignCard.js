@@ -5,7 +5,6 @@ import Card from "react-bootstrap/Card";
 function CampaignCard(value) {
 
     const data = value
-    console.log(data)
 	return (
 		<Card style={{ width: "18rem" }} className="mx-auto">
 			<Card.Img variant="top" src="holder.js/100px180" />

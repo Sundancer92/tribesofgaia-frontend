@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 import { Outlet } from "react-router-dom";
 
@@ -27,10 +28,11 @@ function CustomNavbar() {
 						</Nav>
 
 						<Nav>
-							<Nav.Link href="#deets">More deets</Nav.Link>
-							<Nav.Link eventKey={2} href="#memes">
-								Dank memes
-							</Nav.Link>
+							<LinkContainer to="/auth">
+								<Nav.Link>
+									<Button variant="success">LogIn</Button>
+								</Nav.Link>
+							</LinkContainer>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
