@@ -3,11 +3,16 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 
+//Redux
+import { useSelector } from "react-redux";
+//React Router
 import { Outlet } from "react-router-dom";
-
+//React Bootstrap
 import { LinkContainer } from "react-router-bootstrap";
 
 function CustomNavbar() {
+	const { userName } = useSelector((state) => state.userData);
+
 	return (
 		<>
 			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -26,13 +31,20 @@ function CustomNavbar() {
 								<Nav.Link>Spirits</Nav.Link>
 							</LinkContainer>
 						</Nav>
-
 						<Nav>
-							<LinkContainer to="/auth">
-								<Nav.Link>
-									<Button variant="success">LogIn</Button>
-								</Nav.Link>
-							</LinkContainer>
+							{userName ? (
+								<LinkContainer to="/logout">
+									<Nav.Link>
+										<Button variant="danger">LogOut</Button>
+									</Nav.Link>
+								</LinkContainer>
+							) : (
+								<LinkContainer to="/login">
+									<Nav.Link>
+										<Button variant="success">LogIn</Button>
+									</Nav.Link>
+								</LinkContainer>
+							)}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
