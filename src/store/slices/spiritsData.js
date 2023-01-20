@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     spirits: [],
+    spirit: {},
 }
 
 export const spiritsDataSlice = createSlice({
@@ -10,10 +11,13 @@ export const spiritsDataSlice = createSlice({
     reducers: {
         setSpirits: (state, action) => {
             state.spirits = action.payload;
+        },
+        setSpirit: (state, action) => {
+            state.spirit = action.payload;
         }
     }
 })
 
-export const { setSpirits } = spiritsDataSlice.actions;
+export const { setSpirits, setSpirit } = spiritsDataSlice.actions;
 
 export default spiritsDataSlice.reducer;

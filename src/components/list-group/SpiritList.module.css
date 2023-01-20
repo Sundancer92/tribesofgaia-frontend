@@ -1,0 +1,12 @@
+.ListGroupP{
+    margin: 0;
+    cursor: pointer;
+}
+/* .ListGroupP:hover{
+    background-color: rgb(255, 255, 255);
+} */
+
+.OffCanvasButton{
+    margin-top: 10px;
+    width: 100%;
+}

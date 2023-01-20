@@ -1,36 +1,57 @@
 import { Container } from "react-bootstrap";
-import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
-import Row from "react-bootstrap/Row";
-import Tab from "react-bootstrap/Tab";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+
 import SpiritDescription from "./SpiritDescription";
 
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSpirit } from "../../store/slices/spiritsData";
+
+import styles from "./SpiritList.module.css";
+
 function SpiritList(data) {
+	const dispatch = useDispatch();
+
+	const [show, setShow] = useState(true);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
 	return (
-		<Container className="mt-5">
-			<Tab.Container id="spirits-details-list">
-				<Row>
-					<Col sm={4}>
+		<>
+				<Button
+					className={styles.OffCanvasButton}
+					variant="primary"
+					onClick={handleShow}>
+					Search
+				</Button>
+			<Container className="mt-5">
+
+				<Offcanvas show={show} onHide={handleClose}>
+					<Offcanvas.Header closeButton>
+						<Offcanvas.Title>Spirits</Offcanvas.Title>
+					</Offcanvas.Header>
+					<Offcanvas.Body>
 						<ListGroup>
 							{data.data.map((spirit, index) => (
-								<ListGroup.Item action href={'#' + spirit.id} key={index}>
-									<p >{spirit.name_1}</p>
+								<ListGroup.Item
+                                action
+									key={index}
+									onClick={() => {
+										dispatch(setSpirit(spirit));
+										handleClose();
+									}}>
+									<p className="m-0">{spirit.name_1}</p>
 								</ListGroup.Item>
 							))}
 						</ListGroup>
-					</Col>
-					<Col sm={8}>
-						<Tab.Content>
-							{data.data.map((spirit, index) => (
-								<Tab.Pane eventKey={'#' + spirit.id} key={spirit.name_1 + index}>
-									<SpiritDescription data={spirit}/>
-								</Tab.Pane>
-							))}
-						</Tab.Content>
-					</Col>
-				</Row>
-			</Tab.Container>
-		</Container>
+					</Offcanvas.Body>
+				</Offcanvas>
+				<SpiritDescription />
+			</Container>
+		</>
 	);
 }
 

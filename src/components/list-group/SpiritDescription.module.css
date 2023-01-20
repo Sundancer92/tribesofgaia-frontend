@@ -3,5 +3,6 @@
 }
 
 .TotemCost{
-    margin-top: auto;
+    margin: 0;
+    display: inline-block;
 }
