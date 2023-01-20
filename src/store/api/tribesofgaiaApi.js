@@ -6,7 +6,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const tribesofgaiaApi = createApi({
 	reducerPath: "tribesofgaiaApi",
 	baseQuery: fetchBaseQuery({
-		baseUrl: "http://localhost:5000/",
+		baseUrl: "https://tribesofgaia-api.deta.dev/",
 	}),
 	endpoints: (builder) => ({
 		loginAuth: builder.mutation({
