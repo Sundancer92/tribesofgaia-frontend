@@ -19,7 +19,7 @@ import { useDispatch } from "react-redux";
 import { setUserDataName, setUserDataToken } from "../../store/slices/userData";
 
 //Spinner
-import UserAuthSpinner from "../Loading/UserAuthSpinner";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 function LogIn() {
 	const dispatch = useDispatch();
@@ -58,7 +58,7 @@ function LogIn() {
 	return (
 		<Container className={styles.AuthFormContainer}>
 			{isLoading ? (
-				<UserAuthSpinner />
+				<LoadingSpinner />
 			) : (
 				<Form
 					className={styles.AuthForm}

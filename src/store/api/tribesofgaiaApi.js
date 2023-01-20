@@ -6,7 +6,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const tribesofgaiaApi = createApi({
 	reducerPath: "tribesofgaiaApi",
 	baseQuery: fetchBaseQuery({
-		baseUrl: "https://tribesofgaia-api.deta.dev/",
+		baseUrl: "http://localhost:5000/",
 	}),
 	endpoints: (builder) => ({
 		loginAuth: builder.mutation({
@@ -16,7 +16,10 @@ export const tribesofgaiaApi = createApi({
 				body: authData,
 			}),
 		}),
+		getSpiritsNames: builder.query({
+			query: () => '/spirits',
+		})
 	}),
 });
 
-export const { useLoginAuthMutation } = tribesofgaiaApi;
+export const { useLoginAuthMutation, useGetSpiritsNamesQuery } = tribesofgaiaApi;

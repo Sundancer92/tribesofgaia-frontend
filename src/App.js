@@ -13,6 +13,7 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import Home from "./components/routes/Home";
 import Gifts from "./components/routes/Gifts";
 import LogIn from "./components/routes/LogIn";
+import Spirits from "./components/routes/Spirits";
 import NoMatch404 from "./components/routes/NoMatch404";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/" element={<CustomNavbar />}>
 					<Route index element={<Home />} />
 					<Route path="/gifts" element={<Gifts />} />
+					<Route path="/spirits" element={<Spirits />} />
 					<Route path="/login" element={<LogIn />} />
 
 					{/* Using path="*"" means "match anything", so this route
